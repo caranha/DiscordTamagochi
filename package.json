@@ -5,7 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "dev": "nodemon bot.js",
+    "dev": "nodemon bot.js"
   },
   "keywords": ["discord bot", "tamagochi"],
   "author": "Claus Aranha (caranha@gmail.com)",
