@@ -1,0 +1,10 @@
+{
+  "color": [ "black", "white", "blue", "pink", "purple", "green", "yellow", "red", "silver", "cyan"],
+  "body_adjective": [ "smooth", "rugged", "fluffy", "shiny", "cute", "dotted", "round", "sturdy", "fragile", "strong"],
+  "eye_adjective": [ "puppy", "mysterious", "piercing", "begging", "naive", "innocent", "mischievous", "sleepy", "starry", "tiny", "smol", "big", "square"],
+  "hair_adjective": [ "long", "short", "curly", "straight", "warm", "bright", "rare", "volumous", "flowing", "pony-tailed", "well-kept", "braided", "combed", "licked"],
+  "special_thing": [ "a small tuxedo", "a bowtie", "a monocle", "a tiny backpack", "a ribbon", "a teddy bear", "a plush kitten", "a pot for a hat", "many piercings",
+                     "many bracelets", "a glowing aura", "large wings", "a huge hat", "tiny wings", "a necklace", "a pair of running shoes", "a pair of glasses",
+                     "a pair of sunglasses", "bat wings", "a beautiful scarf", "a beautiful hat", "thick glasses", "a fake moustache", "some cute make-up", "a lot of make-up",
+                     "a pillow", "a plush human", "a smiling mask", "a flower on the top of its head", "very big teeth", "cat ears", "comfy shorts", "a huge shirt"]
+}

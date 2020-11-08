@@ -1,0 +1,21 @@
+{
+  "name": "TamaBot",
+  "version": "0.1.0",
+  "description": "Discord Tamagochi Bot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js",
+  },
+  "keywords": ["discord bot", "tamagochi"],
+  "author": "Claus Aranha (caranha@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "common-tags": "^1.8.0",
+    "discord.js": "^11.4.2",
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

@@ -1,0 +1,3 @@
+{
+    "ignore": ["tamagochi/nest.json", "config.json"] 
+}
