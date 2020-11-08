@@ -8,27 +8,17 @@ module.exports = {
 
 const nest = require("../tamagochi/nest.js")
 
-function act(message) {
-  let e = nest.get(message.author.id);
+function act(message, egg) {
+  let tokens = message.content.trim().split(" ");
+  let args = tokens.slice(tokens.indexOf(`!name`)+1);
 
-  if (typeof e == 'undefined') {
-
-    message.reply("You don't have an egg! Create one first with `!ask`.");
+  if (args.length == 0) {
+    message.reply("What name would you like to give to your egg?");
     return false;
-
-  } else {
-
-    let tokens = message.content.trim().split(" ");
-    let args = tokens.slice(tokens.indexOf(`!name`)+1);
-
-    if (args.length == 0) {
-      message.reply("What name would you like to give to your egg?");
-      return false;
-    }
-
-    e.name = args.join(" ");
-    nest.update(message.author.id, e);
-    message.reply('Okay, the new name of your egg is "' + e.name + '". I think they like it!');
-    return true;
   }
+
+  egg._name = args.join(" ");
+  nest.update(message.author.id, egg);
+  message.reply('Okay, the new name of your egg is "' + egg._name + '". I think they like it!');
+  return true;
 };
