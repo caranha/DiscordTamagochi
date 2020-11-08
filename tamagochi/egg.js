@@ -29,7 +29,7 @@ let egg = class {
       this._mom_id = mom.id;
     }
     this._age = 0;
-    this._lastpet = 0;
+    this._lastpet = -1;
     this._desc = this._create_random_description();
 
     // history
