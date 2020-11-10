@@ -1,7 +1,7 @@
 module.exports = {
   name: "name",
   desc: "Gives your egg a new name.",
-  usage: "`!name <new name>`",
+  usage: "`name <new name>`",
   requires_egg: true,
   act,
 }
@@ -10,7 +10,7 @@ const nest = require("../tamagochi/nest.js")
 
 function act(message, egg) {
   let tokens = message.content.trim().split(" ");
-  let args = tokens.slice(tokens.indexOf(`!name`)+1);
+  let args = tokens.slice(tokens.indexOf(`name`)+1);
 
   if (args.length == 0) {
     message.reply("What name would you like to give to your egg?");

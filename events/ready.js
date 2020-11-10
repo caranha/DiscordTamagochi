@@ -8,15 +8,14 @@ online presence of the bot should be here.
 module.exports = (client) => {
 
   console.log(`Tamabot has logged in as ${client.user.tag}!`)
-  client.user.setActivity("who !ask for eggs", { type: "WATCHING" });
+  client.user.setActivity("@mention help", { type: "LISTENING" });
 
-  // TODO: list guilds I'm present in, and make a list of channels I'm allowed to post to.
+  // Read guilds I'm connected to, maybe send a greeting if appropriate.
 
-  var _homeGuild = client.guilds.find(_ => _.name === "caranha-bot-workshop")
-  var _homeChannel = _homeGuild.channels.find(_ => _.name === "general")
-  _homeChannel.send("TamaBot is ready!")
-
-  return {
-    debugChannel: _homeChannel
-  }
+  // var _homeGuild = client.guilds.find(_ => _.name === "caranha-bot-workshop")
+  // var _homeChannel = _homeGuild.channels.find(_ => _.name === "general")
+  //
+  // return {
+  //   debugChannel: _homeChannel
+  // }
 }

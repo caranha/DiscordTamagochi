@@ -2,6 +2,10 @@
 
 const fs = require('fs');
 const nest = require('../tamagochi/nest.js');
+
+const { global_prefix } = require("../config.json")
+const prefix = global_prefix || "!";
+
 const botCommands = {};
 
 fs.readdir('./commands/', (err, files) => {
@@ -14,34 +18,58 @@ fs.readdir('./commands/', (err, files) => {
 
 
 module.exports = (client, msg) => {
-  if (msg.author.tag == client.user.tag) {
-    return; // ignoring my own messages to avoid infinite loops
+
+  // Check if I should listen to this message (has prefix, is DM, etc.)
+  if (!_validate(client, msg)) {
+    return;
   }
 
-  // Bot reacts if the message is a DM, or if the bot is directly mentioned
-  if (msg.channel.type === "dm" || msg.isMentioned(client.user)) {
+  // Prefix has already been removed. Check each known command.
+  // TODO: replace the global prefix with the server prefix if necessary
 
-    // Will find the first command in the message and execute it
-    let tokens = msg.content.split(" ");
-    for (var _ of tokens) {
-      if (_[0] == "!") {
-        let cmd = _.slice(1);
-        if (cmd in botCommands) {
-
-          let egg = nest.get(msg.author.id);
-          if (botCommands[cmd].requires_egg && typeof egg == 'undefined') {
-            return msg.reply("You don't have an egg! Create one first with `!ask`.");
-          }
-
-          return botCommands[cmd].act(msg, egg)
-
-        } else {
-          return msg.reply(`Hey, I don't know this command, ${_}. Maybe try \`!help\` ?`);
-        }
+  for (cmd in botCommands) {
+    if (msg.content.startsWith(botCommands[cmd].name)) {
+      let egg = nest.get(msg.author.id);
+      if (botCommands[cmd].requires_egg && typeof egg == 'undefined') {
+        let ask = "`"+prefix+"ask`";
+        return msg.reply(`You don't have an egg! First let's create one with ${ask}`);
       }
-    }
 
-    return msg.reply("Hello there! Ask me for a list of commands with `!help`");
+      return botCommands[cmd].act(msg, egg);
+    }
   }
+
+  let help = "`"+prefix+"help`";
+  msg.reply(`Hello there! I'm not sure what you're trying to tell me. Maybe try ${help}?`)
 
 };
+
+// checks if the bot should reply to this message
+function _validate(client, msg) {
+  // ignore self messages
+  if (msg.author.tag == client.user.tag) { return false }
+
+  // TODO: check server configuration to ignore messages certain channels
+
+  // TODO: check server configuration to override global prefix
+
+  // reply to the prefix (TODO: if the user configured a personal prefix, check that too)
+  if ((msg.content.startsWith(prefix))) {
+    msg.content = msg.content.slice(prefix.length).trim();
+    return true;
+  }
+
+
+
+  // reply to DMs and mentions
+  if (msg.channel.type === "dm") { return true }
+
+  if (msg.isMentioned(client.user)) {
+    if (msg.content.startsWith(`<@!${client.user.id}>`)) {
+      msg.content = msg.content.slice(`<@!${client.user.id}>`.length).trim()
+    }
+    return true;
+  }
+
+  return false;
+}

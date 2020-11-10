@@ -2,11 +2,9 @@
 
 # Fixlist
 - [ ] Nothing here yet message on !log
-- [ ] Option for the bot to respond without mentioning
-  - requires making the bot watch certain channels
-  - requires setting up the bot to watch certain channels
-- [ ] Option for a user to change their personal prefix
-  - requires the bot to remember prefix per user
+- [ ] Allow server to configure which channels the bot listen to
+- [ ] Allows user to set personal prefix
+- [ ] Allows server to override global prefix (function "getprefix")
 - [ ] Make it clearer how to use the "name" option
 - [ ] Separate !feed and !cupboard
 

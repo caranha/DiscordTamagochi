@@ -1,7 +1,7 @@
 module.exports = {
   name: "pet",
   desc: "Pets your egg. This will make them happy!",
-  usage: "`!pet`",
+  usage: "`pet`",
   requires_egg: true,
   act,
 }
