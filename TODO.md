@@ -1,12 +1,34 @@
 # Tasklist
 
 # Fixlist
-- [ ] Nothing here yet message on !log
-- [ ] Allow server to configure which channels the bot listen to
-- [ ] Allows user to set personal prefix
-- [ ] Allows server to override global prefix (function "getprefix")
+- [ ] Add a reaction every time the bot understands a command
+- [ ] "Nothing here yet" reply on empty !log
 - [ ] Make it clearer how to use the "name" option
+
 - [ ] Separate !feed and !cupboard
+- [ ] Scale hunger: Hunger levels -- full, ok, hungry, starving
+- [ ] Change probability of eating based on hungry levels: 100% when hungry/starving
+
+- [ ] Bug reaction that marks a message as a typo
+- [ ] Report reaction that immediately delete and logs the message
+
+- [ ] Catch EAI errors (bot can't reach discord)
+- [ ] "TODO reminder" command; "Suggestion" command;
+- [ ] Break help into classifications
+
+- [ ] Allows user to set personal prefix
+- [ ] Allow server to configure which channels the bot listen to
+- [ ] Allows server to override global prefix (function "getprefix")
+
+- [ ] identify just the first few letters of a command (ex: ch for check) -- to do this, I should do a prefix search of the first token on the set of commands
+
+- [ ] Improve information on check: Status, Description, Activity, Items
+
+- [ ] Princess maker update
+- [ ] Future: Attributes: Smarts, Atletics, changed by Activities
+- [ ] Future: Long term activities
+
+- [ ] Memories: list of activities the tamagochi does most often
 
 # Ideas
 ## Improve petting
