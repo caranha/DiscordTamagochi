@@ -245,7 +245,7 @@ let egg = class {
     let ret = "Something is wrong";
 
     if (this._asleep) {
-      ret = `${this._name} is asleep, so you leave some ${foodname} for they to eat it later.`;
+      ret = `${this._name} is asleep, so you leave some ${foodname} for them to eat later.`;
       this._food.push(foodname);
       ret += `\nThey now have ${this._food.join(", ")} in their cupboard.`;
     } else {
@@ -269,7 +269,7 @@ let egg = class {
         }
 
       } else {
-        ret = `${this._name} does not seem interested in the right now. You put it on their cupboard, maybe they'll ead it later.`;
+        ret = `${this._name} does not seem interested in that right now. You put it in their cupboard, maybe they'll eat it later.`;
         this._food.push(foodname);
         ret += `\nThe cupboard now has ${this._food.join(", ")}.`;
       }
