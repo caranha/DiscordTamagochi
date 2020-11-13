@@ -3,7 +3,9 @@
 # Fixlist
 - [X] Add a reaction every time the bot understands a command
 - [X] "Nothing here yet" reply on empty !log
-- [ ] Make it clearer how to use the "name" option
+- [X] Make it clearer how to use the "name" option
+
+- [ ] Allow server to configure which channels the bot listen to
 
 - [ ] Separate !feed and !cupboard
 - [ ] Scale hunger: Hunger levels -- full, ok, hungry, starving
@@ -17,7 +19,6 @@
 - [ ] Break help into classifications
 
 - [ ] Allows user to set personal prefix
-- [ ] Allow server to configure which channels the bot listen to
 - [ ] Allows server to override global prefix (function "getprefix")
 
 - [ ] identify just the first few letters of a command (ex: ch for check) -- to do this, I should do a prefix search of the first token on the set of commands

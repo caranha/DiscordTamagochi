@@ -13,7 +13,7 @@ function act(message, egg) {
   let args = tokens.slice(tokens.indexOf(`name`)+1);
 
   if (args.length == 0) {
-    message.reply("What name would you like to give to your egg?");
+    message.reply("You need to tell me the name you want to give them! use `name <new name>.`");
     return false;
   }
 
