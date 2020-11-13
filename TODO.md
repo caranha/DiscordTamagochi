@@ -2,7 +2,7 @@
 
 # Fixlist
 - [X] Add a reaction every time the bot understands a command
-- [ ] "Nothing here yet" reply on empty !log
+- [X] "Nothing here yet" reply on empty !log
 - [ ] Make it clearer how to use the "name" option
 
 - [ ] Separate !feed and !cupboard

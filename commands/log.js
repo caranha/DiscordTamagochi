@@ -17,7 +17,8 @@ function act(message, egg) {
 
   let description = egg._get_history_string(number);
 
-  if (description != "") message.reply(description);
+  if (description != "") { message.reply(description) }
+  else { message.reply("No logged messages yet.")}
   return true;
 
 };
