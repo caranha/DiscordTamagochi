@@ -1,7 +1,7 @@
 # Tasklist
 
 # Fixlist
-- [ ] Add a reaction every time the bot understands a command
+- [X] Add a reaction every time the bot understands a command
 - [ ] "Nothing here yet" reply on empty !log
 - [ ] Make it clearer how to use the "name" option
 

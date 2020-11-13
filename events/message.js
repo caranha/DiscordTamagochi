@@ -27,6 +27,8 @@ module.exports = (client, msg) => {
   // Prefix has already been removed. Check each known command.
   // TODO: replace the global prefix with the server prefix if necessary
 
+  msg.react('🤖');
+
   for (cmd in botCommands) {
     if (msg.content.startsWith(botCommands[cmd].name)) {
       let egg = nest.get(msg.author.id);
@@ -40,8 +42,7 @@ module.exports = (client, msg) => {
   }
 
   let help = "`"+prefix+"help`";
-  msg.reply(`Hello there! I'm not sure what you're trying to tell me. Maybe try ${help}?`)
-
+  msg.reply(`Hello there! I'm not sure what you're trying to tell me. Maybe try ${help}?`);
 };
 
 // checks if the bot should reply to this message
