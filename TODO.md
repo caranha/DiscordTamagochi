@@ -5,7 +5,10 @@
 - [X] "Nothing here yet" reply on empty !log
 - [X] Make it clearer how to use the "name" option
 
-- [ ] Allow server to configure which channels the bot listen to
+- [X] Allow server to configure which channels the bot listen to
+- [ ] !channel -- allow server mods to change the channel the bot is listening to
+- [ ] Break help into classifications
+- [ ] Hidden command !eat
 
 - [ ] Separate !feed and !cupboard
 - [ ] Scale hunger: Hunger levels -- full, ok, hungry, starving
@@ -16,7 +19,6 @@
 
 - [ ] Catch EAI errors (bot can't reach discord)
 - [ ] "TODO reminder" command; "Suggestion" command;
-- [ ] Break help into classifications
 
 - [ ] Allows user to set personal prefix
 - [ ] Allows server to override global prefix (function "getprefix")

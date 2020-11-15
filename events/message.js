@@ -3,8 +3,10 @@
 const fs = require('fs');
 const nest = require('../tamagochi/nest.js');
 
-const { global_prefix } = require("../config.json")
+const { global_prefix } = require("../config.json");
 const prefix = global_prefix || "!";
+
+const server_config = require("../server_config.json");
 
 const botCommands = {};
 
@@ -50,7 +52,12 @@ function _validate(client, msg) {
   // ignore self messages
   if (msg.author.tag == client.user.tag) { return false }
 
-  // TODO: check server configuration to ignore messages certain channels
+  // if the current server has a "channels" configuration, check if we are
+  // in a valid channel
+  if (server_config[msg.guild.id] && server_config[msg.guild.id].channels &&
+      server_config[msg.guild.id].channels.indexOf(msg.channel.id) == -1) {
+    return false;
+  }
 
   // TODO: check server configuration to override global prefix
 

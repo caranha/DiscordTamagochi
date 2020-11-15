@@ -1,3 +1,3 @@
 {
-    "ignore": ["tamagochi/nest.json", "config.json"] 
+    "ignore": ["tamagochi/nest.json", "config.json", "server_config.json"] 
 }

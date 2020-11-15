@@ -1,9 +1,23 @@
 const fs = require('fs');              // file utilities
-const nest = require('./tamagochi/nest.js') // load tamagochi file
+
+// authentication token
 const config = require('./config.json');   // authentication token
 
-// var memory = require('./utils/memory.js');
-// setInterval(memory.save, 1000*60); // saving the memory once every minute
+// check if server configuration exists
+try {
+  const server_config = require('./server_config.json')
+} catch(err) {
+  if (err.message.startsWith("Cannot find module")) {
+    fs.writeFileSync("server_config.json", JSON.stringify({}),
+      function(err) { if (err) { console.log(err); } });
+  } else {
+    throw(err);
+  }
+}
+
+const nest = require('./tamagochi/nest.js') // load tamagochi file
+
+
 
 //////////////////////////////
 // Initializing discord client
