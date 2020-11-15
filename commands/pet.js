@@ -3,6 +3,7 @@ module.exports = {
   desc: "Pets your egg. This will make them happy!",
   usage: "`pet`",
   requires_egg: true,
+  category: "tamagochi",
   act,
 }
 

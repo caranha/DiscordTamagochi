@@ -7,7 +7,7 @@
 
 - [X] Allow server to configure which channels the bot listen to
 - [X] !channel -- allow server mods to change the channel the bot is listening to
-- [ ] Break help into classifications
+- [X] Break help into classifications
 - [ ] Hidden command !eat
 
 - [ ] Separate !feed and !cupboard

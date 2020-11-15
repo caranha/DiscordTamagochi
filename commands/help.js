@@ -1,23 +1,23 @@
 module.exports = {
   name: "help",
-  desc: "Gives information about other commands. You should already know it, since you are asking for help on help :think:.",
+  desc: "Gives information about other commands. You should already know it, since you are asking for help on help :thinking:.",
   usage: "`help` for a list of commands, or `help <command>` for help on an specific command.",
   requires_egg: false,
+  category: "general",
   act,
 }
 
 const fs = require('fs');
-let command_help = {};
-let command_list = [];
-let commands;
+let commands = [];
+let categories = new Set();
 
 fs.readdir('./commands/', (err, files) => {
   files.forEach(file => {
-    let {name, desc, usage} = require(`../commands/${file}`);
-    command_help[name] = desc + "\n*Usage*:" + usage;
-    command_list.push("`"+name+"`");
+    let {name, desc, usage, category} = require(`../commands/${file}`);
+
+    commands.push({"name":name, "desc":desc, "usage":usage, "category":category})
+    categories.add(category);
   })
-  commands = command_list.join(", ");
 })
 
 function act(message) {
@@ -25,15 +25,32 @@ function act(message) {
   let tokens = message.content.trim().split(" ");
   let args = tokens.slice(tokens.indexOf(`help`)+1);
 
-  for (_arg of args) {
-    if (_arg in command_help) {
-      message.reply(command_help[_arg]);
+  if (args.length > 0) {
+    command = commands.find(x => { return x.name == args[0] });
+    if (command) {
+      let msg = `Help for "${args[0]}":\n`;
+      msg += command["desc"]+"\n";
+      msg += "*Usage:* " + command["usage"];
+
+      message.reply(msg)
       return true;
+    } else {
+      message.reply(`I don't know any command called "${args[0]}"`)
+      return false;
     }
   }
 
-  message.reply("List of commands that I understand: "+commands+"\n\nI understand the prefix `!`, mentions and DMs.")
-    .then(() => message.reply(`Use \`!help <command>\` to learn more about a command.`));
+  let msg = "List of Commands that I know:"
 
+  for (cat of categories) {
+    if (cat != "hidden") {
+      msg += `\n*${cat} commands*: `
+      msg += commands.reduce((a,x) => { return a + (x["category"]==cat?", `"+x["name"]+"`":"") }, "").slice(1);
+    }
+  }
+
+  msg += "\nUse `!help <command>` to learn more about a command.";
+
+  message.reply(msg);
   return true;
 }

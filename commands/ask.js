@@ -3,6 +3,7 @@ module.exports = {
   desc: "This command creates a new egg for you. Take good care of it!",
   usage: "`ask`",
   requires_egg: false,
+  category: "general",
   act,
 }
 

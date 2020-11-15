@@ -3,6 +3,7 @@ module.exports = {
   desc: "Gives your egg a new name.",
   usage: "`name <new name>`",
   requires_egg: true,
+  category: "tamagochi",
   act,
 }
 

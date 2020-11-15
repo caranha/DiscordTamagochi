@@ -3,6 +3,7 @@ module.exports = {
   desc: "Gives food to your egg. If the egg is asleep, or not hungry, puts the food on the cupboard for it to eat later. Each egg has different likes and dislikes, so make sure to experiment!",
   usage: "`feed <name of food>`",
   requires_egg: true,
+  category: "tamagochi",
   act,
 }
 

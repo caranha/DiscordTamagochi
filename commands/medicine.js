@@ -3,6 +3,7 @@ module.exports = {
   desc: "Gives some medicine to your egg. They hate the taste, but it can cure sickness.",
   usage: "`medicine`",
   requires_egg: true,
+  category: "tamagochi",
   act,
 }
 

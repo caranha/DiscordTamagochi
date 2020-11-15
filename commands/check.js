@@ -3,6 +3,7 @@ module.exports = {
   desc: "Get general information about your egg.",
   usage: "`check`",
   requires_egg: true,
+  category: "tamagochi",
   act,
 }
 

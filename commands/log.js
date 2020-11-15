@@ -3,6 +3,7 @@ module.exports = {
   desc: "Check what your egg has been up to recently. List the number of messages that you want to read (default 5).",
   usage: "`log` or `log <number>`.",
   requires_egg: true,
+  category: "hidden",
   act,
 }
 

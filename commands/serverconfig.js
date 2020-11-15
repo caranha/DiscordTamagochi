@@ -3,6 +3,7 @@ module.exports = {
   desc: "Changes configuration for this server. Use `serverconfig` without anything for a list of configs, and `serverconfig <config>` without other options for details about that configuration.",
   usage: "`serverconfig <config> <option>`",
   requires_egg: false,
+  category: "configuration",
   act,
 }
 
