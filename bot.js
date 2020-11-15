@@ -1,21 +1,11 @@
 const fs = require('fs');              // file utilities
 
-// authentication token
-const config = require('./config.json');   // authentication token
+// load local configurations
+const config = require('./config.json');   // authentication token, global prefix
+require('./server_config.js');
 
-// check if server configuration exists
-try {
-  const server_config = require('./server_config.json')
-} catch(err) {
-  if (err.message.startsWith("Cannot find module")) {
-    fs.writeFileSync("server_config.json", JSON.stringify({}),
-      function(err) { if (err) { console.log(err); } });
-  } else {
-    throw(err);
-  }
-}
-
-const nest = require('./tamagochi/nest.js') // load tamagochi file
+// load tamagochi file
+const nest = require('./tamagochi/nest.js')
 
 
 

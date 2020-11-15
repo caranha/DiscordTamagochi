@@ -6,7 +6,7 @@
 - [X] Make it clearer how to use the "name" option
 
 - [X] Allow server to configure which channels the bot listen to
-- [ ] !channel -- allow server mods to change the channel the bot is listening to
+- [X] !channel -- allow server mods to change the channel the bot is listening to
 - [ ] Break help into classifications
 - [ ] Hidden command !eat
 

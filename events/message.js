@@ -4,9 +4,7 @@ const fs = require('fs');
 const nest = require('../tamagochi/nest.js');
 
 const { global_prefix } = require("../config.json");
-const prefix = global_prefix || "!";
-
-const server_config = require("../server_config.json");
+const { server_config } = require("../server_config.js");
 
 const botCommands = {};
 
@@ -35,7 +33,7 @@ module.exports = (client, msg) => {
     if (msg.content.startsWith(botCommands[cmd].name)) {
       let egg = nest.get(msg.author.id);
       if (botCommands[cmd].requires_egg && typeof egg == 'undefined') {
-        let ask = "`"+prefix+"ask`";
+        let ask = "`ask`";
         return msg.reply(`You don't have an egg! First let's create one with ${ask}`);
       }
 
@@ -43,7 +41,7 @@ module.exports = (client, msg) => {
     }
   }
 
-  let help = "`"+prefix+"help`";
+  let help = "`help`";
   msg.reply(`Hello there! I'm not sure what you're trying to tell me. Maybe try ${help}?`);
 };
 
@@ -51,15 +49,23 @@ module.exports = (client, msg) => {
 function _validate(client, msg) {
   // ignore self messages
   if (msg.author.tag == client.user.tag) { return false }
+  let prefix = global_prefix || "!";
 
   // if the current server has a "channels" configuration, check if we are
   // in a valid channel
-  if (server_config[msg.guild.id] && server_config[msg.guild.id].channels &&
+  if (server_config[msg.guild.id] &&
+      server_config[msg.guild.id].channels &&
+      server_config[msg.guild.id].channels.length > 0 &&
       server_config[msg.guild.id].channels.indexOf(msg.channel.id) == -1) {
     return false;
   }
 
   // TODO: check server configuration to override global prefix
+  if (server_config[msg.guild.id] &&
+      server_config[msg.guild.id].prefix &&
+      server_config[msg.guild.id].prefix.length > 0) {
+        prefix = server_config[msg.guild.id].prefix
+      }
 
   // reply to the prefix (TODO: if the user configured a personal prefix, check that too)
   if ((msg.content.startsWith(prefix))) {
