@@ -1,3 +1,7 @@
+2020.11.15 -- 0.1.5
+- Added a secret command
+- Added more variation to pet command
+
 2020.11.15 -- 0.1.4
 - bot now reads server_config.json to decide which channels it can speak at
 - added serverconfig prefix and serverconfig channel commands

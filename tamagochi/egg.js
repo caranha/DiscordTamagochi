@@ -10,6 +10,7 @@ const idle_event = require("../tamagochi/idle_event.js");
 
 const random_names = JSON.parse(fs.readFileSync("./data/names.json"));
 const random_desc = JSON.parse(fs.readFileSync("./data/description.json"));
+const random_petting = JSON.parse(fs.readFileSync("./data/petting.json"));
 
 // Constants
 const max_food = 24;
@@ -57,6 +58,10 @@ let egg = class {
     }
 
     return ret;
+  }
+
+  get hunger() {
+    return Math.ceil(this._fullness / (max_food/4));
   }
 
   describe() {
@@ -222,23 +227,48 @@ let egg = class {
   }
 
   pet() {
+    let filter = "";
+
     if (this._lastpet == this._age) {
-      return `You pet ${this._name} a little bit more. They are so fluffy!`
+      filter = "repeated";
+
     } else {
       this._lastpet = this._age;
 
-      if (this._health < min_health * 1/3) {
+      if (this._asleep) {
+        filter = "sleeping";
+      } else if (this._health < min_health * 1/3) {
         this._happiness += 4;
-        return `Poor ${this._name} looks sick. You pet and comfort them for a while. Hang in there, ${this._name}!`
+        filter = "sick";
       } else if (this._happiness < min_happiness * 1/3) {
         this._happiness += 6;
-        return `${this._name} seems so sad... you spend some time petting them, and that seems to cheer them up!`
+        filter = "sad"
       } else {
         this._happiness += 2;
-        return `You give ${this._name} some pats on their head. They giggle in happiness`;
+        filter = "happy"
       }
 
     }
+
+    let pet_list = random_petting.filter(m => { return m[0] == filter});
+    let msg = choice(pet_list)[1].replace("$NAME", this._name);
+    return msg;
+  }
+
+  eat(foodname) {
+
+    if (this._asleep) {
+      return(`You eat some ${foodname} while looking at ${this._name}, who is asleep. `)
+    }
+
+    if (this.hunger == 0) {
+      return(`You start to eat some ${foodname}, but ${this._name} tries to snatch it from your hand. Feed them already, you moster!`);
+    } else if (this.hunger < 3) {
+      return(`You eat some ${foodname} in front of ${this._name}, who looks at you as if they wanted some too.`);
+    } else {
+      return(`You eat some ${foodname}. ${this._name} looks puzzled at you.`)
+    }
+
   }
 
   feed(foodname) {

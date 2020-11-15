@@ -1,0 +1,17 @@
+[
+  ["happy","You give $NAME some pats on their head. They giggle in happiness."],
+  ["happy","You straighten up $NAME's fur. They purr."],
+  ["happy","You pet little $NAME for a while. They play with your hand, as if it was a huge monster!"],
+  ["repeated","You pet $NAME a little bit more. They are so fluffy!"],
+  ["repeated","You keep petting $NAME. You could do this forever!"],
+  ["repeated","You tussle $NAME's fur a little bit more."],
+  ["sleeping","You caress $NAME's head as they sleep. They look so peaceful!"],
+  ["sleeping","You pet $NAME as they sleep. What are they dreaming about?"],
+  ["sleeping","You pet $NAME as they sleep. They snore a tiny little bit."],
+  ["sick", "Poor $NAME looks sick. You comfort them for a while. Hang in there, $NAME!"],
+  ["sick", "You lay your hand on $NAME's head. They are a bit feverish..."],
+  ["sick", "$NAME is looking sick. They snuggle against your hand when you start petting them."],
+  ["sad", "$NAME seems very sad. You spend some time petting them, and that seems to cheer them up!"],
+  ["sad", "$NAME is quiet. They perk up a bit when you pet their head."],
+  ["sad", "$NAME is looking down, so you squeeze their little hand, and assures them that everything will be allright. They seem to look up a bit!"]
+]

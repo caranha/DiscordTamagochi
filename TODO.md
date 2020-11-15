@@ -8,11 +8,15 @@
 - [X] Allow server to configure which channels the bot listen to
 - [X] !channel -- allow server mods to change the channel the bot is listening to
 - [X] Break help into classifications
-- [ ] Hidden command !eat
+- [X] Hidden command !eat
+- [X] Random pet messages
 
+- [ ] Rock paper scissors
 - [ ] Separate !feed and !cupboard
 - [ ] Scale hunger: Hunger levels -- full, ok, hungry, starving
 - [ ] Change probability of eating based on hungry levels: 100% when hungry/starving
+
+- [ ] accumulative commands: !eat checks if the pet ate recently and makes a picnic, !feed checks if the player ate recently and makes a picnic.
 
 - [ ] Bug reaction that marks a message as a typo
 - [ ] Report reaction that immediately delete and logs the message
@@ -34,20 +38,27 @@
 - [ ] Memories: list of activities the tamagochi does most often
 
 # Ideas
+
 ## Improve petting
-- Petting gives more messages
-- Pet message when sleeping
+- Randomize initial message from petting
+- Special petting message when sleeping
+
+## Picnic:
+- When you eat at the same time that your pet is eating, you have a picnic.
+- When you eat, register the time that you ate.
+- When your pet eats, register the time that the pet eats.
+- If the times are the same, and you used a !eat or !feed command, have a picnic
+  - picnic increases happiness.
 
 ## Alarm:
-- pets can send messages if they are too sick or unhappy?
-- Maybe rare random messages?
-- Player can scold the pets to reduce frequency of messages?
+- Pet send a direct message if they want something.
+- Direct message is limited to 1 every day.
+- Player can "configplayer" to set the message limit.
+- Player can scold the pet, if the message is not appropriate.
 
 ## Admin
-- Admins
-- Delete pets / Reset pets
-- Change other configuration
-- DM options? (Some commands return only DMs)
+- Player can delete their pet.
+- Player can set personal prefix.
 
 ## Medicine
 - nerf medicine, so you can't just give it over and over again.
